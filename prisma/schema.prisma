@@ -70,6 +70,7 @@ model Workspace {
   members    WorkspaceMember[]
   invitations WorkspaceInvitation[]
   apiKeys    ApiKey[]
+  webhooks   Webhook[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -114,6 +115,21 @@ model ApiKey {
   workspaceId String
   lastUsed    DateTime?
   expiresAt   DateTime?
+
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Webhook {
+  id          String   @id @default(cuid())
+  name        String
+  url         String
+  events      String[] // e.g., ["user.created", "payment.success"]
+  secret      String?
+  isActive    Boolean  @default(true)
+  workspaceId String
 
   workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
 
