@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Key, Webhook, Users, Settings, Activity, CreditCard, BarChart3, Bell } from 'lucide-react'
+import { Key, Webhook, Users, Settings, Activity, CreditCard, BarChart3, Bell, Shield } from 'lucide-react'
 
 export default function DashboardPage() {
   return (
@@ -61,7 +61,8 @@ export default function DashboardPage() {
         </div>
 
         {/* Quick Actions */}
-        <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
+        <h2 className="text-lg font-semibold mt-8 mb-4">Quick Actions</h2>
+        <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
           <Card className="cursor-pointer hover:bg-muted/50 transition-colors">
             <Link href="/dashboard/keys">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -154,6 +155,22 @@ export default function DashboardPage() {
                 </p>
                 <Button variant="outline" size="sm" className="w-full">
                   View All
+                </Button>
+              </CardContent>
+            </Link>
+          </Card>
+          <Card className="cursor-pointer hover:bg-muted/50 transition-colors">
+            <Link href="/dashboard/audit">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Audit Log</CardTitle>
+                <Shield className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <p className="text-xs text-muted-foreground mb-2">
+                  Security events
+                </p>
+                <Button variant="outline" size="sm" className="w-full">
+                  View Logs
                 </Button>
               </CardContent>
             </Link>
