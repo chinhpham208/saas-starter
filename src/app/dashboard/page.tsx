@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Key, Webhook, Users } from 'lucide-react'
+import { Key, Webhook, Users, Settings } from 'lucide-react'
 
 export default function DashboardPage() {
   return (
@@ -14,8 +14,12 @@ export default function DashboardPage() {
             <span className="text-xl font-bold">SaaS Starter</span>
           </div>
           <div className="flex items-center gap-4">
-            <Button variant="ghost">Dashboard</Button>
-            <Button variant="ghost">Settings</Button>
+            <Button variant="ghost" asChild>
+              <Link href="/dashboard">Dashboard</Link>
+            </Button>
+            <Button variant="ghost" asChild>
+              <Link href="/dashboard/settings">Settings</Link>
+            </Button>
             <Button variant="outline">Sign Out</Button>
           </div>
         </div>
