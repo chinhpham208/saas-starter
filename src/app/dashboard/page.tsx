@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Key, Webhook, Users, Settings } from 'lucide-react'
+import { Key, Webhook, Users, Settings, Activity } from 'lucide-react'
 
 export default function DashboardPage() {
   return (
@@ -114,9 +114,14 @@ export default function DashboardPage() {
 
         {/* Recent Activity */}
         <Card className="mt-8">
-          <CardHeader>
-            <CardTitle>Recent Activity</CardTitle>
-            <CardDescription>Your latest workspace activities</CardDescription>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <div>
+              <CardTitle>Recent Activity</CardTitle>
+              <CardDescription>Your latest workspace activities</CardDescription>
+            </div>
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/dashboard/activity">View All</Link>
+            </Button>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
